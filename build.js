@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // ===== CONFIGURAÇÃO =====
-const BASE_URL = 'https://fotografiabelica.com';
+const BASE_URL = 'https://fotografiabelica.com.br';
 // =========================
 
 // 1. Carregar posts.js
