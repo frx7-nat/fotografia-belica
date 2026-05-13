@@ -3,7 +3,7 @@ const posts = [
   id: 2,
   slug: "deixei-o-direito-pela-fotografia",
   title: "Deixei o direito pela fotografia",
-  date: "2026-05-11",
+  date: "2026-05-12",
    content: `Não foi uma decisão fácil, nunca é, mas em algum momento precisei criar minha resposta.
 
 Se valeu a pena, eis uma resposta simples, com absoluta certeza, facilmente o rigor técnico da lei teria engolido meus pueris sonhos.
@@ -26,7 +26,7 @@ Nem o direito, nem a vida, e nessa história eu quis ficar acordado.`
     id: 1,
     slug: "fotografia-e-aparencia",
     title: "A fotografia é aparência?",
-    date: "2026-04-01",
+    date: "2026-05-07",
     content: "Não, a fotografia é labor. Retratar, seja o que for, vai requerer um ímpeto que fachada alguma resistiria sem alicerce. O visual facilmente dura o tempo de uma impressão, o trabalho pode durar o tempo de uma vida."
   }
 ];

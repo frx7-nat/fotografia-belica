@@ -11,7 +11,7 @@
   <meta property="og:title" content="Deixei o direito pela fotografia">
   <meta property="og:description" content="Não foi uma decisão fácil, nunca é, mas em algum momento precisei criar minha resposta.">
   <meta property="og:site_name" content="fotografia bélica">
-  <meta property="article:published_time" content="2026-05-11">
+  <meta property="article:published_time" content="2026-05-12">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
@@ -23,10 +23,32 @@
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #fafaf8;
+      --text: #2c2c2c;
+      --card-bg: #fff;
+      --border: #eae6e0;
+      --heading: #1a1a1a;
+      --muted: #8c8c8c;
+      --link: #555;
+      --link-hover: #1a1a1a;
+      --shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    body.dark {
+      --bg: #1c1c1a;
+      --text: #d6d2ca;
+      --card-bg: #262522;
+      --border: #3a3935;
+      --heading: #e6e2d8;
+      --muted: #7a7870;
+      --link: #aaa69c;
+      --link-hover: #e6e2d8;
+      --shadow: 0 1px 3px rgba(0,0,0,0.15);
+    }
     body {
       font-family: 'Georgia', 'Times New Roman', serif;
-      background-color: #fafaf8;
-      color: #2c2c2c;
+      background-color: var(--bg);
+      color: var(--text);
       line-height: 1.5;
       display: flex;
       flex-direction: column;
@@ -38,17 +60,24 @@
     .post-wrapper {
       max-width: 650px;
       width: 100%;
-      background: white;
+      background: var(--card-bg);
       padding: 3rem 2.5rem;
-      border: 1px solid #eae6e0;
+      border: 1px solid var(--border);
       border-radius: 4px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      box-shadow: var(--shadow);
     }
+
+    .tema-btn {
+      background: none; border: 1px solid var(--border); padding: 0.3rem 0.9rem;
+      font-size: 0.8rem; font-family: inherit; cursor: pointer; color: var(--muted);
+      letter-spacing: 0.5px; transition: 0.2s; border-radius: 3px; margin-bottom: 1.5rem;
+    }
+    .tema-btn:hover { border-color: var(--heading); color: var(--heading); }
 
     h1 {
       font-size: 2rem;
       font-weight: 400;
-      color: #1a1a1a;
+      color: var(--heading);
       margin-bottom: 0.5rem;
       text-align: center;
       line-height: 1.3;
@@ -56,7 +85,7 @@
 
     .date {
       text-align: center;
-      color: #8c8c8c;
+      color: var(--muted);
       font-size: 0.9rem;
       margin-bottom: 2.5rem;
       letter-spacing: 0.5px;
@@ -70,21 +99,18 @@
     a.back {
       display: inline-block;
       background: none;
-      border: 1px solid #ccc;
+      border: 1px solid var(--border);
       padding: 0.6rem 1.8rem;
       font-size: 0.95rem;
       font-family: inherit;
       text-decoration: none;
-      color: #555;
+      color: var(--link);
       transition: 0.2s;
     }
-    a.back:hover { border-color: #1a1a1a; color: #1a1a1a; }
+    a.back:hover { border-color: var(--link-hover); color: var(--link-hover); }
 
-    /* Ajustes para smartphones */
     @media (max-width: 600px) {
-      body {
-        padding: 1.5rem 3vw;
-      }
+      body { padding: 1.5rem 3vw; }
       .post-wrapper {
         padding: 2.2rem 1rem;
         border-radius: 0;
@@ -92,19 +118,16 @@
         border-right: none;
         box-shadow: none;
       }
-      h1 {
-        font-size: 1.6rem;
-      }
-      .content {
-        font-size: 1rem;
-      }
+      h1 { font-size: 1.6rem; }
+      .content { font-size: 1rem; }
     }
   </style>
 </head>
 <body>
   <div class="post-wrapper">
+    <button id="temaToggle" class="tema-btn" aria-label="Alternar modo claro/escuro">modo escuro</button>
     <h1>Deixei o direito pela fotografia</h1>
-    <div class="date">10 de maio de 2026</div>
+    <div class="date">11 de maio de 2026</div>
     <div class="content">
       <p>Não foi uma decisão fácil, nunca é, mas em algum momento precisei criar minha resposta.</p><p>Se valeu a pena, eis uma resposta simples, com absoluta certeza, facilmente o rigor técnico da lei teria engolido meus pueris sonhos.</p><p>Não que aqueles 5 anos nada tenham representado, todo um estudo sobre o pacto social e ordenamento jurídico me ajudaram a criar uma base inclusive para ver a fotografia com mais seriedade, já que o olhar e registro cotidiano também permeiam tão profundo nossa sociedade.</p><p>Hoje sou fotógrafo e tenho 28 anos, muito novo inclusive para contar história, mas convicto e apaixonado o suficiente para falar que as possibilidades são infinitamente maiores onde bate o coração.</p><p>Quando assumi de fato a fotografia, vi que ali era apenas mais uma porta para outra infinidade de conhecimentos. Comunicação, marketing, escrita, tudo que significa trânsito de ideias poderia auxiliar meu visual.</p><p>Com o tempo o caminho fica menos turvo e o dia amanhece, a fotografia vira uma associação instantânea e um laborioso laboratório.</p><p>Olhando em retrospecto, os últimos 5 anos foram valorosos, basicamente o tempo de outra faculdade, mas que foi estudada em campo, sem professor e sem manual.</p><p>Por fim, há um ditado que diz o direito não socorre aos que dormem.</p><p>Nem o direito, nem a vida, e nessa história eu quis ficar acordado.</p>
     </div>
@@ -112,5 +135,21 @@
   <footer>
     <a href="../index.html" class="back">← voltar ao blog</a>
   </footer>
+
+  <script>
+    (function() {
+      var b = document.body, t = document.getElementById('temaToggle'), d = localStorage.getItem('tema') === 'escuro';
+      if (d) b.classList.add('dark');
+      if (t) {
+        t.textContent = d ? 'modo claro' : 'modo escuro';
+        t.addEventListener('click', function() {
+          b.classList.toggle('dark');
+          var e = b.classList.contains('dark');
+          localStorage.setItem('tema', e ? 'escuro' : 'claro');
+          t.textContent = e ? 'modo claro' : 'modo escuro';
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

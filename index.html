@@ -12,10 +12,36 @@
   <link rel="canonical" href="https://fotografiabelica.com.br/index.html">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #fafaf8;
+      --text: #2c2c2c;
+      --card-bg: #fff;
+      --border: #eae6e0;
+      --heading: #1a1a1a;
+      --muted: #8c8c8c;
+      --link: #555;
+      --link-hover: #1a1a1a;
+      --older-heading: #4a4a4a;
+      --footer: #aaa;
+      --shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    body.dark {
+      --bg: #1c1c1a;
+      --text: #d6d2ca;
+      --card-bg: #262522;
+      --border: #3a3935;
+      --heading: #e6e2d8;
+      --muted: #7a7870;
+      --link: #aaa69c;
+      --link-hover: #e6e2d8;
+      --older-heading: #b0aca2;
+      --footer: #5a5852;
+      --shadow: 0 1px 3px rgba(0,0,0,0.15);
+    }
     body {
       font-family: 'Georgia', 'Times New Roman', serif;
-      background-color: #fafaf8;
-      color: #2c2c2c;
+      background-color: var(--bg);
+      color: var(--text);
       line-height: 1.5;
       display: flex;
       flex-direction: column;
@@ -23,32 +49,44 @@
       padding: 2rem 5vw;
       min-height: 100vh;
     }
-    header { text-align: center; margin-bottom: 3rem; }
-    h1 { font-size: 2.5rem; font-weight: 400; letter-spacing: 2px; color: #1a1a1a; text-transform: lowercase; margin-bottom: 0.2rem; }
-    .subtitle { font-size: 2.5rem; font-weight: 200; color: #1a1a1a; letter-spacing: 1px; margin-top: 0; }
+    header { text-align: center; margin-bottom: 2.5rem; }
+    .top-bar { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1.5rem; }
+    .top-link {
+      font-size: 0.8rem; font-family: inherit; color: var(--muted); text-decoration: none;
+      letter-spacing: 0.5px; transition: 0.2s; border-bottom: 1px dotted transparent;
+    }
+    .top-link:hover { color: var(--heading); border-bottom-color: var(--heading); }
+    h1 { font-size: 2.5rem; font-weight: 400; letter-spacing: 3px; color: var(--heading); text-transform: lowercase; margin-bottom: 0.5rem; }
+    .subtitle { font-size: 1rem; font-weight: 400; color: var(--muted); letter-spacing: 1px; margin-top: 0; }
+    .tema-btn {
+      background: none; border: 1px solid var(--border); padding: 0.3rem 0.9rem;
+      font-size: 0.8rem; font-family: inherit; cursor: pointer; color: var(--muted);
+      letter-spacing: 0.5px; transition: 0.2s; border-radius: 3px;
+    }
+    .tema-btn:hover { border-color: var(--heading); color: var(--heading); }
     main { width: 100%; max-width: 650px; display: flex; flex-direction: column; align-items: center; }
     .post-card {
-      background: white; border: 1px solid #eae6e0; border-radius: 4px;
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px;
       padding: 2.5rem 2rem; margin-bottom: 3rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04); width: 100%;
+      box-shadow: var(--shadow); width: 100%;
     }
-    .post-card h2 { font-size: 1.8rem; font-weight: 400; margin-bottom: 1rem; color: #1a1a1a; text-align: center; line-height: 1.3; }
-    .post-card h2 a { color: inherit; text-decoration: none; border-bottom: 1px dotted #aaa; transition: border-color 0.2s; }
-    .post-card h2 a:hover { border-bottom-color: #1a1a1a; }
-    .post-card .post-date { text-align: center; font-size: 0.9rem; color: #8c8c8c; margin-bottom: 2rem; letter-spacing: 0.5px; }
+    .post-card h2 { font-size: 1.8rem; font-weight: 400; margin-bottom: 1rem; color: var(--heading); text-align: center; line-height: 1.3; }
+    .post-card h2 a { color: inherit; text-decoration: none; border-bottom: 1px dotted var(--muted); transition: border-color 0.2s; }
+    .post-card h2 a:hover { border-bottom-color: var(--link-hover); }
+    .post-card .post-date { text-align: center; font-size: 0.9rem; color: var(--muted); margin-bottom: 2rem; letter-spacing: 0.5px; }
     .post-card .post-content { font-size: 1.1rem; text-align: left; }
     .post-card .post-content p { margin-bottom: 1rem; }
     .older-posts { width: 100%; max-width: 650px; margin-top: 1rem; }
-    .older-posts h3 { font-weight: 400; font-size: 1.2rem; color: #4a4a4a; margin-bottom: 1rem; text-align: center; }
+    .older-posts h3 { font-weight: 400; font-size: 1.2rem; color: var(--older-heading); margin-bottom: 1rem; text-align: center; }
     .posts-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; align-items: center; }
     .posts-list li { font-size: 0.95rem; }
-    .posts-list a { color: #555; text-decoration: none; border-bottom: 1px dotted #ccc; transition: color 0.2s, border-color 0.2s; }
-    .posts-list a:hover { color: #1a1a1a; border-bottom-color: #1a1a1a; }
-    footer { margin-top: auto; padding-top: 3rem; font-size: 0.8rem; color: #aaa; }
+    .posts-list a { color: var(--link); text-decoration: none; border-bottom: 1px dotted var(--border); transition: color 0.2s, border-color 0.2s; }
+    .posts-list a:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); }
+    footer { margin-top: auto; padding-top: 3rem; font-size: 0.8rem; color: var(--footer); }
     @media (max-width: 600px) {
       body { padding: 1.5rem 3vw; }
       h1 { font-size: 2rem; }
-      .subtitle { font-size: 2rem; }
+      .subtitle { font-size: 0.9rem; }
       .post-card {
         padding: 2.2rem 1rem;
         border-radius: 0;
@@ -63,13 +101,17 @@
 </head>
 <body>
   <header>
+    <div class="top-bar">
+      <button id="temaToggle" class="tema-btn" aria-label="Alternar modo claro/escuro">modo escuro</button>
+      <a href="contato.html" class="top-link">contato</a>
+    </div>
     <h1>fotografia bélica</h1>
-    <p class="subtitle">O momento exato da ação</p>
+    <p class="subtitle">o momento exato da ação</p>
   </header>
   <main>
     <div class="post-card">
       <h2><a href="posts/deixei-o-direito-pela-fotografia.html">Deixei o direito pela fotografia</a></h2>
-      <div class="post-date">10 de maio de 2026</div>
+      <div class="post-date">11 de maio de 2026</div>
       <div class="post-content">
         <p>Não foi uma decisão fácil, nunca é, mas em algum momento precisei criar minha resposta.</p><p>Se valeu a pena, eis uma resposta simples, com absoluta certeza, facilmente o rigor técnico da lei teria engolido meus pueris sonhos.</p><p>Não que aqueles 5 anos nada tenham representado, todo um estudo sobre o pacto social e ordenamento jurídico me ajudaram a criar uma base inclusive para ver a fotografia com mais seriedade, já que o olhar e registro cotidiano também permeiam tão profundo nossa sociedade.</p><p>Hoje sou fotógrafo e tenho 28 anos, muito novo inclusive para contar história, mas convicto e apaixonado o suficiente para falar que as possibilidades são infinitamente maiores onde bate o coração.</p><p>Quando assumi de fato a fotografia, vi que ali era apenas mais uma porta para outra infinidade de conhecimentos. Comunicação, marketing, escrita, tudo que significa trânsito de ideias poderia auxiliar meu visual.</p><p>Com o tempo o caminho fica menos turvo e o dia amanhece, a fotografia vira uma associação instantânea e um laborioso laboratório.</p><p>Olhando em retrospecto, os últimos 5 anos foram valorosos, basicamente o tempo de outra faculdade, mas que foi estudada em campo, sem professor e sem manual.</p><p>Por fim, há um ditado que diz o direito não socorre aos que dormem.</p><p>Nem o direito, nem a vida, e nessa história eu quis ficar acordado.</p>
       </div>
@@ -78,11 +120,27 @@
   <section class="older-posts">
     <h3>textos anteriores</h3>
     <ul class="posts-list">
-                    <li><a href="posts/fotografia-e-aparencia.html">A fotografia é aparência? — 31 de março de 2026</a></li>
+                    <li><a href="posts/fotografia-e-aparencia.html">A fotografia é aparência? — 6 de maio de 2026</a></li>
     </ul>
   </section>
   <footer>
     <span>© 2026 · fotografia bélica</span>
   </footer>
+
+  <script>
+    (function() {
+      var b = document.body, t = document.getElementById('temaToggle'), d = localStorage.getItem('tema') === 'escuro';
+      if (d) b.classList.add('dark');
+      if (t) {
+        t.textContent = d ? 'modo claro' : 'modo escuro';
+        t.addEventListener('click', function() {
+          b.classList.toggle('dark');
+          var e = b.classList.contains('dark');
+          localStorage.setItem('tema', e ? 'escuro' : 'claro');
+          t.textContent = e ? 'modo claro' : 'modo escuro';
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
