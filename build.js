@@ -79,7 +79,7 @@ const indexHTML = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>fotografia bélica – o momento exato da ação</title>
+  <title>${posts[0].title} — fotografia bélica</title>
   <meta name="description" content="A fotografia é bélica. O cotidiano não deixa margem para erros.">
   <meta property="og:title" content="fotografia bélica">
   <meta property="og:description" content="O momento exato da ação. Textos e ensaios sobre a vivência fotográfica, uma câmera e seus olhares.">
