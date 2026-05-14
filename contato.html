@@ -18,8 +18,6 @@
       --link: #555;
       --link-hover: #1a1a1a;
       --shadow: 0 1px 3px rgba(0,0,0,0.04);
-      --input-bg: #fcfcfb;
-      --input-border: #d6d2ca;
       --label: #555;
     }
     body.dark {
@@ -32,8 +30,6 @@
       --link: #aaa69c;
       --link-hover: #e6e2d8;
       --shadow: 0 1px 3px rgba(0,0,0,0.15);
-      --input-bg: #2a2926;
-      --input-border: #4a4844;
       --label: #b0aca2;
     }
     body {
@@ -70,64 +66,34 @@
       letter-spacing: 0.5px; transition: 0.2s; border-radius: 3px; margin-bottom: 1.5rem;
     }
     .tema-btn:hover { border-color: var(--heading); color: var(--heading); }
-    .form-group {
-      margin-bottom: 1.5rem;
+
+    .email-wrapper {
+      text-align: center;
+      padding: 1rem 0 0.5rem;
     }
-    label {
-      display: block;
-      font-size: 0.9rem;
-      color: var(--label);
-      margin-bottom: 0.4rem;
-      letter-spacing: 0.3px;
-    }
-    input, textarea {
-      width: 100%;
-      font-family: inherit;
-      font-size: 1rem;
-      padding: 0.7rem 0.9rem;
-      border: 1px solid var(--input-border);
-      border-radius: 3px;
-      background: var(--input-bg);
-      color: var(--text);
-      transition: border-color 0.2s;
-    }
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: var(--muted);
-    }
-    textarea {
-      min-height: 150px;
-      resize: vertical;
-    }
-    .erro {
-      color: #b33;
-      font-size: 0.85rem;
-      margin-top: 0.3rem;
-      display: none;
-    }
-    .erro.visivel {
-      display: block;
-    }
-    .btn-enviar {
+    .btn-copiar {
       background: none;
       border: 1px solid var(--border);
-      padding: 0.7rem 2rem;
-      font-size: 1rem;
+      padding: 0.6rem 2rem;
+      font-size: 0.95rem;
       font-family: inherit;
       cursor: pointer;
       color: var(--link);
       transition: 0.2s;
-      width: 100%;
+      margin-top: 0.8rem;
     }
-    .btn-enviar:hover {
+    .btn-copiar:hover {
       border-color: var(--link-hover);
       color: var(--link-hover);
     }
-    .sucesso {
-      text-align: center;
-      color: var(--text);
-      padding: 2rem 0;
+    .copiado {
       display: none;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-left: 0.8rem;
+    }
+    .copiado.visivel {
+      display: inline;
     }
     footer { margin-top: 2.5rem; }
     a.back {
@@ -159,38 +125,12 @@
   <div class="form-wrapper">
     <button id="temaToggle" class="tema-btn" aria-label="Alternar modo claro/escuro">modo escuro</button>
     <h1>contato</h1>
-    <p style="text-align:center;color:#8c8c8c;margin-bottom:2.5rem;font-size:0.9rem;">Escreva sua mensagem</p>
-
-    <form id="formContato" novalidate>
-      <div class="form-group">
-        <label for="nome">Nome</label>
-        <input type="text" id="nome" name="nome" required>
-        <span class="erro" id="erroNome">Informe seu nome.</span>
-      </div>
-
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-        <span class="erro" id="erroEmail">Informe um email válido.</span>
-      </div>
-
-      <div class="form-group">
-        <label for="assunto">Assunto</label>
-        <input type="text" id="assunto" name="assunto" required>
-        <span class="erro" id="erroAssunto">Informe o assunto.</span>
-      </div>
-
-      <div class="form-group">
-        <label for="mensagem">Mensagem</label>
-        <textarea id="mensagem" name="mensagem" required></textarea>
-        <span class="erro" id="erroMensagem">Escreva sua mensagem.</span>
-      </div>
-
-      <button type="submit" class="btn-enviar">enviar</button>
-    </form>
-
-    <div class="sucesso" id="msgSucesso">
-      <p>Mensagem enviada com sucesso.</p>
+    <div class="email-wrapper">
+      <p style="text-align:center;color:var(--muted);margin-bottom:2rem;font-size:0.95rem;">
+        <a href="mailto:natalier.profissional@gmail.com" style="color:var(--heading);text-decoration:none;border-bottom:1px dotted var(--muted);font-size:1.1rem;">natalier.profissional@gmail.com</a>
+      </p>
+      <button id="btnCopiar" class="btn-copiar">copiar email</button>
+      <span class="copiado" id="msgCopiado">copiado!</span>
     </div>
   </div>
 
@@ -213,52 +153,13 @@
       }
     })();
 
-    function validarFormularioContato() {
-      var valido = true;
-
-      var nome = document.getElementById('nome').value.trim();
-      if (!nome) {
-        document.getElementById('erroNome').classList.add('visivel');
-        valido = false;
-      } else {
-        document.getElementById('erroNome').classList.remove('visivel');
-      }
-
-      var email = document.getElementById('email').value.trim();
-      var emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-      if (!email || !emailValido) {
-        document.getElementById('erroEmail').classList.add('visivel');
-        valido = false;
-      } else {
-        document.getElementById('erroEmail').classList.remove('visivel');
-      }
-
-      var assunto = document.getElementById('assunto').value.trim();
-      if (!assunto) {
-        document.getElementById('erroAssunto').classList.add('visivel');
-        valido = false;
-      } else {
-        document.getElementById('erroAssunto').classList.remove('visivel');
-      }
-
-      var mensagem = document.getElementById('mensagem').value.trim();
-      if (!mensagem) {
-        document.getElementById('erroMensagem').classList.add('visivel');
-        valido = false;
-      } else {
-        document.getElementById('erroMensagem').classList.remove('visivel');
-      }
-
-      return valido;
-    }
-
-    document.getElementById('formContato').addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      if (!validarFormularioContato()) return;
-
-      document.getElementById('formContato').style.display = 'none';
-      document.getElementById('msgSucesso').style.display = 'block';
+    document.getElementById('btnCopiar').addEventListener('click', function() {
+      var email = 'natalier.profissional@gmail.com';
+      navigator.clipboard.writeText(email).then(function() {
+        var msg = document.getElementById('msgCopiado');
+        msg.classList.add('visivel');
+        setTimeout(function() { msg.classList.remove('visivel'); }, 2000);
+      });
     });
   </script>
 </body>
