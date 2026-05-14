@@ -189,7 +189,7 @@ const indexHTML = `<!DOCTYPE html>
       <h2><a href="posts/${latestSlug}.html">${escapeHTML(latestPost.title)}</a></h2>
       <div class="post-date">${formatDate(latestPost.date)}</div>
       <div class="post-content">
-        ${convertContent(latestPost.content)}
+        ${latestPost.content.split('\n\n').slice(0, 3).map(p => `<p>${escapeHTML(p)}</p>`).join('')}
       </div>
     </div>
   </main>
