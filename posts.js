@@ -1,32 +1,23 @@
 const posts = [
-{
-  id: 2,
-  slug: "deixei-o-direito-pela-fotografia",
-  title: "Deixei o direito pela fotografia",
-  date: "2026-05-12",
-   content: `Não foi uma decisão fácil, nunca é, mas em algum momento precisei criar minha resposta.
-
-Se valeu a pena, eis uma resposta simples, com absoluta certeza, facilmente o rigor técnico da lei teria engolido meus pueris sonhos.
-
-Não que aqueles 5 anos nada tenham representado, todo um estudo sobre o pacto social e ordenamento jurídico me ajudaram a criar uma base inclusive para ver a fotografia com mais seriedade, já que o olhar e registro cotidiano também permeiam tão profundo nossa sociedade.
-
-Hoje sou fotógrafo e tenho 28 anos, muito novo inclusive para contar história, mas convicto e apaixonado o suficiente para falar que as possibilidades são infinitamente maiores onde bate o coração.
-
-Quando assumi de fato a fotografia, vi que ali era apenas mais uma porta para outra infinidade de conhecimentos. Comunicação, marketing, escrita, tudo que significa trânsito de ideias poderia auxiliar meu visual.
-
-Com o tempo o caminho fica menos turvo e o dia amanhece, a fotografia vira uma associação instantânea e um laborioso laboratório.
-
-Olhando em retrospecto, os últimos 5 anos foram valorosos, basicamente o tempo de outra faculdade, mas que foi estudada em campo, sem professor e sem manual.
-
-Por fim, há um ditado que diz o direito não socorre aos que dormem.
-
-Nem o direito, nem a vida, e nessa história eu quis ficar acordado.`
+  {
+    "id": 3,
+    "title": "Narrativas espaciais nas imagens de Sebastião Salgado",
+    "date": "2026-05-14",
+    "slug": "narrativas-espaciais-nas-imagens-de-sebastiao-salgado",
+    "content": "\"A fotografia é a mais fácil das artes. O que talvez faça dela a mais difícil.\" Lisette Model\n\nComo tudo que é desconhecido, fui assolado pela nova empreitada que é misturar Fotografia com Geografia, duas vertentes do conhecimento que até então eu não havia pensado em vê-las conversando, por mais que as grafias representem a escrita, o registro, o estudo.\n\nÉ interessante pensar como esses fenômenos se cruzam, que a luz delineia formas sobre fisionomias que já estão aqui desde tempos tão ancestrais, e não só isso, mas o quanto essa mesma luz é potente em clarear perspectivas tão humanas e atuais sobre a humanidade e seus movimentos.\n\nEis o momento em que mais uma vez a fotografia se mostra um campo de infinitas possibilidades, quando a autora do livro, Flora Sousa Pidner, diz: \"parte-se da finitude da imagem para a infinitude dos horizontes interpretativos.\"\n\nNo mesmo livro há uma citação de Mia Couto: Não sabemos ler o mundo.\n\n\"Falamos em ler e pensamos apenas nos livros, nos textos escritos. O senso comum diz que lemos apenas palavras. Mas a ideia de leitura aplica-se a um vasto universo. Nós lemos emoções nos rostos, lemos os sinais climáticos nas nuvens, lemos o chão, lemos o Mundo, lemos a Vida. Tudo pode ser página. Depende apenas da intenção de descoberta do nosso olhar.\"\n\nApós essa reflexão, torna-se mais possível compreender que é sobre a Terra, é sobre a Luz, mas acima de tudo é sobre nossa capacidade mais pueril de sermos sensíveis, de olhar para o chão e notarmos a terra em que pisamos, onde o sol nasce e se põe, para onde o vento sopra.\n\nE ser sensível requer dedicação, ao contrário do que pensam ou parece ser mais tragável, não é um sentimento inato que habita o olhar fotográfico, mas uma vontade irrevogável de unir peças que só fazem sentido em nossa cabeça, até que se materializem e tornem-se significado.\n\nNesse caso, a fotografia ajuda a endossar a geografia com suas narrativas visuais que dão corpo e aparência aos fenômenos que nos cercam, assim como a geografia ajuda a dar espacialidade para essa luz, aqui muito mais enquanto contraste, visando o discernimento.\n\nPor fim, está sendo interessante perceber a função do olhar para além da estética, mas também enquanto denúncia, interpretação e manifesto.\n\nSebastião Salgado é um desses grandes professores que perpetuam o criticismo, o espírito audaz, o que é sempre muito bem vindo, pois enveredar por caminhos tão labirínticos vai requerer de nós, iniciantes, alguns bons guias e nada como estar revisando passos tão questionadores sobre um labor tão infinito."
   },
   {
-    id: 1,
-    slug: "fotografia-e-aparencia",
-    title: "A fotografia é aparência?",
-    date: "2026-05-07",
-    content: "Não, a fotografia é labor. Retratar, seja o que for, vai requerer um ímpeto que fachada alguma resistiria sem alicerce. O visual facilmente dura o tempo de uma impressão, o trabalho pode durar o tempo de uma vida."
+    "id": 2,
+    "slug": "deixei-o-direito-pela-fotografia",
+    "title": "Deixei o direito pela fotografia",
+    "date": "2026-05-12",
+    "content": "Não foi uma decisão fácil, nunca é, mas em algum momento precisei criar minha resposta.\n\nSe valeu a pena, eis uma resposta simples, com absoluta certeza, facilmente o rigor técnico da lei teria engolido meus pueris sonhos.\n\nNão que aqueles 5 anos nada tenham representado, todo um estudo sobre o pacto social e ordenamento jurídico me ajudaram a criar uma base inclusive para ver a fotografia com mais seriedade, já que o olhar e registro cotidiano também permeiam tão profundo nossa sociedade.\n\nHoje sou fotógrafo e tenho 28 anos, muito novo inclusive para contar história, mas convicto e apaixonado o suficiente para falar que as possibilidades são infinitamente maiores onde bate o coração.\n\nQuando assumi de fato a fotografia, vi que ali era apenas mais uma porta para outra infinidade de conhecimentos. Comunicação, marketing, escrita, tudo que significa trânsito de ideias poderia auxiliar meu visual.\n\nCom o tempo o caminho fica menos turvo e o dia amanhece, a fotografia vira uma associação instantânea e um laborioso laboratório.\n\nOlhando em retrospecto, os últimos 5 anos foram valorosos, basicamente o tempo de outra faculdade, mas que foi estudada em campo, sem professor e sem manual.\n\nPor fim, há um ditado que diz o direito não socorre aos que dormem.\n\nNem o direito, nem a vida, e nessa história eu quis ficar acordado."
+  },
+  {
+    "id": 1,
+    "slug": "fotografia-e-aparencia",
+    "title": "A fotografia é aparência?",
+    "date": "2026-05-07",
+    "content": "Não, a fotografia é labor. Retratar, seja o que for, vai requerer um ímpeto que fachada alguma resistiria sem alicerce. O visual facilmente dura o tempo de uma impressão, o trabalho pode durar o tempo de uma vida."
   }
 ];

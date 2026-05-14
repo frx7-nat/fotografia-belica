@@ -1,65 +1,66 @@
 const fs = require('fs');
-const readline = require('readline').createInterface({
+const readline = require('readline');
+
+const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-const perguntar = (pergunta) => new Promise(resolve => readline.question(pergunta, resolve));
+const perguntar = (pergunta) => new Promise(resolve => rl.question(pergunta, resolve));
 
 (async () => {
   try {
-    // 1. Perguntar título e data
     const title = await perguntar('Título: ');
-    const date = await perguntar('Data (AAAA-MM-DD): ');
-
-    // 2. Ler o conteúdo (multilinha)
-    console.log('Conteúdo (digite \\n\\n para separar parágrafos. Termine com Ctrl+D e Enter):');
-    
-    const chunks = [];
-    process.stdin.on('data', chunk => chunks.push(chunk.toString()));
-
-    // Aguarda o fim da entrada (Ctrl+D)
-    await new Promise(resolve => process.stdin.on('end', resolve));
-    let content = chunks.join('').trim();
-
-    // Substitui quebras reais de parágrafo por \n\n no formato do arquivo
-    // (caso o usuário digite parágrafos separados por duas quebras, mantém a legibilidade)
-    content = content.replace(/\n\s*\n/g, '\n\n');
-
-    // 3. Ler o arquivo posts.js atual
-    const arquivo = fs.readFileSync('posts.js', 'utf8');
-
-    // 4. Extrair o array de posts com eval (seguro, pois o arquivo é controlado por você)
-    const match = arquivo.match(/const posts = (\[[\s\S]*\]);/);
-    if (!match) {
-      console.error('❌ Formato inesperado do posts.js. Esperado: const posts = [ ... ];');
+    if (!title.trim()) {
+      console.error('Título não pode ser vazio.');
       process.exit(1);
     }
 
-    const posts = eval(match[1]);  // apenas para recuperar o array
+    const date = await perguntar('Data (AAAA-MM-DD): ');
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(date.trim())) {
+      console.error('Data deve estar no formato AAAA-MM-DD.');
+      process.exit(1);
+    }
 
-    // 5. Criar novo post com id único
+    const slug = await perguntar('Slug (URL amigável, ex: meu-novo-post): ');
+    if (!slug.trim()) {
+      console.error('Slug não pode ser vazio.');
+      process.exit(1);
+    }
+
+    console.log('\nConteúdo (parágrafos separados por linha em branco. Ctrl+D para finalizar):\n');
+
+    const contentLines = [];
+    rl.on('line', line => contentLines.push(line));
+    await new Promise(resolve => rl.on('close', resolve));
+
+    let content = contentLines.join('\n').trim();
+    if (!content) {
+      console.error('Conteúdo não pode ser vazio.');
+      process.exit(1);
+    }
+    content = content.replace(/\n\s*\n/g, '\n\n');
+
+    // Atualizar posts.js
+    const arquivo = fs.readFileSync('posts.js', 'utf8');
+    const match = arquivo.match(/const posts = (\[[\s\S]*\]);/);
+    if (!match) {
+      console.error('Formato inesperado do posts.js.');
+      process.exit(1);
+    }
+
+    const posts = eval(match[1]);
     const newId = Math.max(...posts.map(p => p.id), 0) + 1;
-    const newPost = {
-      id: newId,
-      title,
-      date,
-      content
-    };
 
-    // 6. Adicionar no início (mais recente primeiro)
-    posts.unshift(newPost);
+    posts.unshift({ id: newId, title: title.trim(), date: date.trim(), slug: slug.trim(), content });
 
-    // 7. Gerar o novo conteúdo do arquivo, formatado com indentação
-    const newFileContent = `const posts = ${JSON.stringify(posts, null, 2)};\n`;
+    fs.writeFileSync('posts.js', `const posts = ${JSON.stringify(posts, null, 2)};\n`, 'utf8');
 
-    // 8. Salvar substituindo o arquivo
-    fs.writeFileSync('posts.js', newFileContent, 'utf8');
-
-    console.log(`✅ Post "${title}" adicionado com sucesso!`);
+    console.log(`\nPost "${title.trim()}" adicionado em posts.js`);
+    console.log('Execute "node build.js" para gerar as páginas.');
   } catch (err) {
-    console.error('❌ Erro:', err.message);
+    if (err.message !== 'exit') console.error('Erro:', err.message);
   } finally {
-    readline.close();
+    rl.close();
   }
 })();
