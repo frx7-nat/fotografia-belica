@@ -85,6 +85,11 @@ const indexHTML = `<!DOCTYPE html>
   <meta property="og:description" content="O momento exato da ação. Textos e ensaios sobre a vivência fotográfica, uma câmera e seus olhares.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="fotografia bélica">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://placehold.co/1200x630/1a1a1a/fafaf8?text=fotografia+b%C3%A9lica">
+  <meta property="og:image" content="https://placehold.co/1200x630/1a1a1a/fafaf8?text=fotografia+b%C3%A9lica">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <link rel="canonical" href="${BASE_URL}/index.html">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -190,7 +195,7 @@ const indexHTML = `<!DOCTYPE html>
       <div class="post-date">${formatDate(latestPost.date)}</div>
       <div class="post-content">
         ${latestPost.content.split('\n\n').slice(0, 3).map(p => `<p>${escapeHTML(p)}</p>`).join('')}
-          <p style="font-style: italic; color: var(--muted); margin-top: 1.5rem; text-align: center;"><a href="posts/${latestSlug}.html" style="color: inherit; text-decoration: none; border-bottom: 1px dotted var(--muted);">continua…</a></p>
+          <p style="font-style: italic; color: var(--muted); margin-top: 1.5rem; text-align: center;"><a href="posts/${latestSlug}.html" style="color: inherit; text-decoration: none; border-bottom: 1px dotted var(--muted);">continuar lendo…</a></p>
       </div>
     </div>
   </main>
