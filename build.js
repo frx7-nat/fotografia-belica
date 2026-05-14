@@ -190,6 +190,7 @@ const indexHTML = `<!DOCTYPE html>
       <div class="post-date">${formatDate(latestPost.date)}</div>
       <div class="post-content">
         ${latestPost.content.split('\n\n').slice(0, 3).map(p => `<p>${escapeHTML(p)}</p>`).join('')}
+          <p style="font-style: italic; color: var(--muted); margin-top: 1.5rem; text-align: center;"><a href="posts/${latestSlug}.html" style="color: inherit; text-decoration: none; border-bottom: 1px dotted var(--muted);">continua…</a></p>
       </div>
     </div>
   </main>
