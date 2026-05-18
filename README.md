@@ -66,6 +66,10 @@ Lê `posts.js`, aplica o template e gera:
 | **Imagens** | `![alt](url)` em parágrafo próprio |
 | **BASE_URL** | Definido em `build.js:5` — trocar se o domínio mudar |
 
+## Manutenção
+
+Manutenção realizada via **opencode** no terminal, com navegação assistida por IA (DeepSeek e Qwen). Upload e publicação via mensagem direta para o GitHub.
+
 ## Hospedagem
 
 GitHub Pages com domínio personalizado configurado em `CNAME`.
